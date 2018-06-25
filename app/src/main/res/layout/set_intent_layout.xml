@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:layout_margin="10dp"
+    android:id="@+id/main"
+    android:background="@drawable/green_border">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="@dimen/mainSize"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/name_edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/name_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:textSize="@dimen/mainSize"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@id/textView"
+        android:inputType="textShortMessage" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/intent"
+        android:textSize="@dimen/mainSize"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/name_edit"
+        app:layout_constraintBottom_toTopOf="@id/intent_edit"/>
+
+    <EditText
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        android:id="@+id/intent_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+
+        android:inputType="textShortMessage"
+
+        android:textSize="@dimen/mainSize"/>
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/intent_edit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/test_button"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/mainSize"
+        android:textColor="@color/white"
+        android:background="@drawable/green_button"
+
+        android:padding="@dimen/button_padding"
+        app:layout_constraintRight_toLeftOf="@id/delete_button"
+        android:text="@string/test"/>
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/intent_edit"
+        app:layout_constraintLeft_toRightOf="@id/test_button"
+        android:id="@+id/delete_button"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/mainSize"
+        android:textColor="@color/white"
+        android:background="@drawable/green_button"
+
+        android:padding="@dimen/button_padding"
+        app:layout_constraintRight_toLeftOf="@id/save_button"
+        android:text="@string/delete"/>
+
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/intent_edit"
+        app:layout_constraintLeft_toRightOf="@id/delete_button"
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:id="@+id/save_button"
+        android:background="@drawable/green_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/mainSize"
+        android:textColor="@color/white"
+        android:padding="@dimen/button_padding"
+        android:text="@string/save"/>
+
+
+
+</android.support.constraint.ConstraintLayout>
