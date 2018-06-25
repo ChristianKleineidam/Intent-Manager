@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">ProcessLib</string>
     <string name="download_intent_manager">Download Intent Manager</string>
-    <string name="you_need_to_download_the_intent_manager_to_set_the_intent_that_this_app_triggers">You need to download the Intent Manager to set the intent that this app triggers!</string>
+    <string name="download_manager_explanation">
+        You need to download the Intent Manager from the Google Play store to set the intent that should
+        be triggered, when this activity is started.</string>
 </resources>
