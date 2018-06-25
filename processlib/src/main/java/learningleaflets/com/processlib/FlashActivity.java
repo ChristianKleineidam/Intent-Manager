@@ -1,10 +1,19 @@
 package learningleaflets.com.processlib;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
+import static learningleaflets.com.processlib.Misc.isPackageInstalled;
+import static learningleaflets.com.processlib.Misc.openGooglePlay;
+
 
 public class FlashActivity extends AppCompatActivity {
 
@@ -14,21 +23,45 @@ public class FlashActivity extends AppCompatActivity {
         return -1;
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.w(TAG, "Start onCreate");
-        ComponentName cn = startService(createIntent());
-        if (cn==null){
-            Log.w(TAG, "Intent not received");
-            //TODO way to install IntentManager
+
+        Log.w(TAG, "Start onCreate: " + getPackageName());
+
+        if (isPackageInstalled("com.LearningLeaflets.IntentApp.Manager",
+                getPackageManager())) {
+
+            ComponentName cn = startService(createIntent());
+            if (cn == null) {
+                Log.w(TAG, "Intent not received");
+            }
+            else {
+                Log.w(TAG, "cna: " + cn.toString());
+            }
+
+            finish();
         }
         else{
-            Log.w(TAG, "cna: " + cn.toString());
+            displayDownloadButton(savedInstanceState);
         }
-
-        finish();
     }
+
+    private void displayDownloadButton(Bundle savedInstanceState){
+        setContentView(R.layout.please_download);
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGooglePlay(
+                        "com.LearningLeaflets.IntentApp.Manager",
+                        FlashActivity.this);
+            }
+        });
+    }
+
+
 
     private Intent createIntent(){
         String address = "com.learningleaflets.START_INTENT";
@@ -37,4 +70,5 @@ public class FlashActivity extends AppCompatActivity {
         intent.setPackage("com.LearningLeaflets.IntentApp.Manager");
         return intent;
     }
+
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Intent App Manager</string>
+    <string name="app_name">Intent Manager</string>
     <string name="action_settings">Settings</string>
     <string name="you_need_to_download_another">You need to download another app for this feature</string>
     <string name="name">Name</string>

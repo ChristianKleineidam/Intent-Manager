@@ -1,8 +1,8 @@
 package com.LearningLeaflets.IntentApp.Manager.Fragments;
 
-import android.util.Log;
-
 import com.LearningLeaflets.IntentApp.Manager.R;
+
+import static learningleaflets.com.processlib.Misc.openGooglePlay;
 
 public class DownloadAppFragment extends MainFragment {
     private String TAG = "DOWNLOAD_APP";
@@ -13,7 +13,6 @@ public class DownloadAppFragment extends MainFragment {
 
     @Override
     protected void buttonClick() {
-        Log.w(TAG, "TODO: Open Google Play for " + num);
-
+        openGooglePlay( "learningleaflets.com.intent" + num, getContext());
     }
 }

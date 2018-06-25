@@ -1,9 +1,7 @@
 package com.LearningLeaflets.IntentApp.Manager;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +15,9 @@ import com.LearningLeaflets.IntentApp.Manager.Fragments.EmptyAllocationFragment;
 import com.LearningLeaflets.IntentApp.Manager.Fragments.FullAllocationFragment;
 import com.LearningLeaflets.IntentApp.Manager.data.AllocationViewModel;
 import com.LearningLeaflets.IntentApp.Manager.data.AppAllocation;
+
+import static learningleaflets.com.processlib.Misc.isPackageInstalled;
+
 
 import java.util.List;
 
@@ -104,12 +105,4 @@ public class ManagerOverview extends AppCompatActivity {
         return null;
     }
 
-    private boolean isPackageInstalled(String package_name, PackageManager packageManager) {
-        try {
-            packageManager.getPackageInfo(package_name, 0);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
-    }
 }
